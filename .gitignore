@@ -10,3 +10,4 @@ project.properties
 .classpath
 *.factorypath
 .vscode/launch.json
+runelite-client/src/main/java/net/runelite/client/plugins/notifier/NotifierKey.java

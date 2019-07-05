@@ -12,7 +12,6 @@ import com.google.inject.Provides;
 import net.runelite.api.Client;
 import net.runelite.api.Player;
 import net.runelite.api.Skill;
-import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -55,6 +54,7 @@ public class NotifierPlugin extends Plugin {
     }
 
     private boolean notified = false;
+
 
     @Subscribe
     public void onGameTick(GameTick event) {
@@ -140,7 +140,7 @@ public class NotifierPlugin extends Plugin {
 
         Request request = new Request.Builder()
         .url("https://api.pushbullet.com/v2/pushes")
-        .addHeader("Access-Token", token)
+        .addHeader("Access-Token", NotifierKey.PUSHBULLET_KEY)
         .post(RequestBody.create(JSON, postBody))
         .build();
 
